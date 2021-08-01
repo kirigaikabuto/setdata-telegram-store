@@ -58,3 +58,9 @@ type Result struct {
 type GetUpdates struct {
 	Result []Result `json:"result"`
 }
+
+type SendTelegramMessage struct {
+	ChatId    string `json:"chat_id"`
+	ParseMode string `json:"parse_mode"`
+	Text      string `json:"text"`
+}

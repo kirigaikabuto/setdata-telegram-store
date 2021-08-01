@@ -1,6 +1,7 @@
 package setdata_telegram_store
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"github.com/google/uuid"
@@ -90,6 +91,24 @@ func (t *telegramService) SendMessage(cmd *SendMessageCommand) error {
 				TelegramBotId: v.Id,
 				Value:         d,
 			})
+			if err != nil {
+				return err
+			}
+		}
+		dbChatIds, err = t.chatIdStore.List(v.Id)
+		if err != nil {
+			return err
+		}
+		for _, chID := range dbChatIds {
+			client := http.Client{}
+			baseUrl := "https://api.telegram.org/bot%s/%s"
+			sendMessageURl := fmt.Sprintf(baseUrl, v.AccessToken, "sendMessage")
+			jsonData, err := json.Marshal(SendTelegramMessage{
+				ChatId:    chID.Value,
+				ParseMode: cmd.ParseMode,
+				Text:      cmd.Message,
+			})
+			_, err = client.Post(sendMessageURl, "application/json", bytes.NewReader(jsonData))
 			if err != nil {
 				return err
 			}
