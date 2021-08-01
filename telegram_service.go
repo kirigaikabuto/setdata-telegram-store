@@ -7,6 +7,7 @@ type TelegramService interface {
 	GetTelegramBot(cmd *GetTelegramBotCommand) (*TelegramBot, error)
 	ListTelegramBot(cmd *ListTelegramBotCommand) ([]TelegramBot, error)
 	DeleteTelegramBot(cmd *DeleteTelegramBotCommand) error
+	SendMessage(cmd *SendMessageCommand) error
 }
 
 type telegramService struct {
@@ -30,4 +31,9 @@ func (t *telegramService) ListTelegramBot(cmd *ListTelegramBotCommand) ([]Telegr
 
 func (t *telegramService) DeleteTelegramBot(cmd *DeleteTelegramBotCommand) error {
 	return t.store.Delete(cmd.Id)
+}
+
+func (t *telegramService) SendMessage(cmd *SendMessageCommand) error {
+
+	return nil
 }

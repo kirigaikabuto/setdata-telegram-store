@@ -31,3 +31,13 @@ type ListTelegramBotCommand struct {
 func (cmd *ListTelegramBotCommand) Exec(service interface{}) (interface{}, error) {
 	return service.(TelegramService).ListTelegramBot(cmd)
 }
+
+type SendMessageCommand struct {
+	TelegramBoId string `json:"telegram_bot_id"`
+	Message      string `json:"message"`
+	ParseMode    string `json:"parse_mode"`
+}
+
+func (cmd *SendMessageCommand) Exec(service interface{}) (interface{}, error) {
+	return nil, service.(TelegramService).SendMessage(cmd)
+}

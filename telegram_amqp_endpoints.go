@@ -85,3 +85,22 @@ func (t *TelegramAmqpEndpoints) DeleteTelegramBotAmqpEndpoint() amqp.Handler {
 		return &amqp.Message{Body: jsonResponse}
 	}
 }
+
+func (t *TelegramAmqpEndpoints) SendMessageTelegramBotAmqpEndpoint() amqp.Handler {
+	return func(message amqp.Message) *amqp.Message {
+		cmd := &SendMessageCommand{}
+		err := json.Unmarshal(message.Body, &cmd)
+		if err != nil {
+			return setdata_common.ErrToAmqpResponse(err)
+		}
+		response, err := t.ch.ExecCommand(cmd)
+		if err != nil {
+			return setdata_common.ErrToAmqpResponse(err)
+		}
+		jsonResponse, err := json.Marshal(response)
+		if err != nil {
+			return setdata_common.ErrToAmqpResponse(err)
+		}
+		return &amqp.Message{Body: jsonResponse}
+	}
+}
