@@ -10,6 +10,10 @@ type TelegramAmqpEndpoints struct {
 	ch setdata_common.CommandHandler
 }
 
+func NewTelegramAmqpEndpoints(ch setdata_common.CommandHandler) TelegramAmqpEndpoints {
+	return TelegramAmqpEndpoints{ch: ch}
+}
+
 func (t *TelegramAmqpEndpoints) CreateTelegramBotAmqpEndpoint() amqp.Handler {
 	return func(message amqp.Message) *amqp.Message {
 		cmd := &CreateTelegramBotCommand{}
