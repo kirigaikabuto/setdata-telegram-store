@@ -41,3 +41,20 @@ type SendMessageCommand struct {
 func (cmd *SendMessageCommand) Exec(service interface{}) (interface{}, error) {
 	return nil, service.(TelegramService).SendMessage(cmd)
 }
+
+type Chat struct {
+	Id   int    `json:"id"`
+	Type string `json:"type"`
+}
+
+type Message struct {
+	Chat Chat `json:"chat"`
+}
+
+type Result struct {
+	Message Message `json:"message"`
+}
+
+type GetUpdates struct {
+	Result []Result `json:"result"`
+}

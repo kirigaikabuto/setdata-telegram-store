@@ -33,7 +33,7 @@ func NewPostgresTelegramStore(cfg PostgresConfig) (TelegramStore, error) {
 	store := &telegramStore{db: db}
 	//create default values
 	store.Create(&TelegramBot{
-		Id:          "123",
+		Id:          "123456789",
 		Name:        "main_telegram",
 		AccessToken: "1930340256:AAFE0Hwv0cA6o5DJviO66DkfJa5JcPHUChY",
 	})
