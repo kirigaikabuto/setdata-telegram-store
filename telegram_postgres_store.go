@@ -3,6 +3,7 @@ package setdata_telegram_store
 import (
 	"database/sql"
 	"log"
+	_ "github.com/lib/pq"
 )
 
 var telegramPostgresQueries = []string{

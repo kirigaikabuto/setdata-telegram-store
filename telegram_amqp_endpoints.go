@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"github.com/djumanoff/amqp"
 	setdata_common "github.com/kirigaikabuto/setdata-common"
+
 )
 
 type TelegramAmqpEndpoints struct {
