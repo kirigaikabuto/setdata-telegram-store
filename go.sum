@@ -1,6 +1,7 @@
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/djumanoff/amqp v1.0.6 h1:su9ywx/MFPcGBPE9J3Q8F2f7W702lq5HBXhRqwc6MXY=
 github.com/djumanoff/amqp v1.0.6/go.mod h1:iMGsrDyTlB0+Wx2WQQPo2eqyKMHWdv/XsLyv780DUe8=
+github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
 github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/kirigaikabuto/setdata-common v1.0.1-0.20210731073120-f240c1ec93b0 h1:ew7ndAx/IDf+GmRLu0+livaslnRGqcg7yW6AHbbm4fA=
 github.com/kirigaikabuto/setdata-common v1.0.1-0.20210731073120-f240c1ec93b0/go.mod h1:EcsbBKzPC1NGpm1iADkalbcxTuw7M8ChtXfC+SFBcOM=

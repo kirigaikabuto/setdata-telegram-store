@@ -23,8 +23,8 @@ type telegramService struct {
 	defaultTelegramId string
 }
 
-func NewTelegramService(id string, s TelegramStore) TelegramService {
-	return &telegramService{defaultTelegramId: id, store: s}
+func NewTelegramService(id string, s TelegramStore, c ChatIdStore) TelegramService {
+	return &telegramService{defaultTelegramId: id, store: s, chatIdStore: c}
 }
 
 func (t *telegramService) CreateTelegramBot(cmd *CreateTelegramBotCommand) (*TelegramBot, error) {
@@ -90,7 +90,7 @@ func (t *telegramService) SendMessage(cmd *SendMessageCommand) error {
 				TelegramBotId: v.Id,
 				Value:         d,
 			})
-			if err != nil{
+			if err != nil {
 				return err
 			}
 		}
